@@ -1,0 +1,24 @@
+body
+{
+background-color:#eb34cc;
+font-family: 'Poppins', sans-serif;
+}
+.navbar-light .navbar-nav .nav-link
+{
+color:red;
+}
+
+.footer
+{
+height:30px;
+width:100%;
+background-color:pink;
+position:fixed;
+bottom:0;
+text-align:center;
+font-weight:bold;
+}
+
+.table-bordered{
+border-width:4px;
+}

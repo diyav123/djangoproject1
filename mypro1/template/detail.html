@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="container-fluid mt-4">
+  <div class="row">
+
+    <div class="col-md-4">
+      <img src="{{p.image.url}}" class="img-fluid rounded-start" height="400px" width="400px">
+    </div>
+    <div class="col-sm-5">
+        <h3>{{p.name}}</h3>
+        <h5>{{p.name}}</h5>
+        <h4>{{p.desc}}</h4>
+        {{p.stock}}
+       {% if user.is_superuser == False %}
+
+        {% if p.stock <= 0 %}
+        <h4>Out of stock</h4>
+        {% else %}
+        <h4><a href="{% url 'cart:cart' p.name %}" class="btn btn-secondary mt-4">ADD TO CART</a></h4>
+        {% endif %}
+
+
+
+        {% else %}
+        {% if p.stock <= 0 %}
+        <h4>Out of stock</h4>
+        <h4><a href="{% url 'admin:index' %}" class="btn btn-secondary mt-4">Add stock</a></h4>
+        {% else %}
+        <h4>Out of stock</h4>
+        <h4><a href="{% url 'admin:index' %}" class="btn btn-secondary mt-4">Add stock</a></h4>
+        {% endif %}
+      {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}
